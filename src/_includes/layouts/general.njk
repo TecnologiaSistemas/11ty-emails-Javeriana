@@ -1,0 +1,49 @@
+{% extends "../base.njk" %}
+
+{% block header %}
+  {% set headerAttrs = {
+    tableAttrs: {
+      background: {
+        color: "blue"
+      }
+    },
+    image: {
+      url: "https://i.embluejet.com/ImagenesMoxie/31505/images/AP_header.png",
+      width: "100%",
+      alt: "AP Latam"
+    }
+  } %}
+  {% include "../template-parts/demo/header.njk" %}
+{% endblock %}
+
+{% block footer %}
+  {% set imageAttrs = {
+    tableAttrs: {
+      addContainer: true,
+      singleColumn: true
+    },
+    url: "https://i.embluejet.com/ImagenesMoxie/31505/images/AP_footer.jpg",
+    width: "100%"
+  } %}
+  {% include "../template-parts/fragments/image.njk" %}
+  
+  {% set imageAttrs = {
+    tableAttrs: {
+      addContainer: true,
+      singleColumn: true,
+      addGutters: true,
+      background: {
+        color: "#0032e8"
+      },
+      spacer: {
+        top: 20,
+        bottom: 15
+      }
+    },
+    url: "https://i.embluejet.com/ImagenesMoxie/31505/images/ap_logo.png",
+    width: 150,
+    align: "center"
+  } %}
+  {% include "../template-parts/fragments/image.njk" %}
+
+{% endblock %}

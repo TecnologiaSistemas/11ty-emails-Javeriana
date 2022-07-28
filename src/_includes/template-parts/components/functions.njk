@@ -1,0 +1,226 @@
+{% macro setAttr(attr, value, default) %}
+  {% set return = "" %}
+  {% if value %}
+    {% set return = attr + '="' + value +'"' %}
+  {% else %}
+    {% if default %}
+      {% set return = attr + '="' + default +'"' %}
+    {% endif %}
+  {% endif %}
+  {{ return | safe }}
+{% endmacro %}
+
+{% macro setBgStyles(cssObj, addAttr = true) %}
+  {% set return = "" %}
+  {% set styles = [] %}
+  {% for a, v in cssObj %}
+    {% if a == "image" %}
+      {% set v = "url("+ v +")" %}
+    {% endif %}
+    {% set styles = (styles.push("background-"+ a +":"+ v +";"), styles) %}
+  {% endfor %}
+  {% if addAttr %}
+    {% set return = 'style="'+ styles | join(" ") + '"' %}
+  {% else %}
+    {% set return = styles | join(" ") %}
+  {% endif %}
+  {% if styles | length > 0 %}
+    {{ return | safe }}
+  {% endif %}
+{% endmacro %}
+
+{% macro setTextStyles(cssObj, addAttr = true) %}
+  {% set return = "" %}
+  {% set styles = [] %}
+  {% for a, v in cssObj %}
+    {% if a == "color" %} {% set styles = (styles.push(a +":"+ v +";"), styles) %}
+    {% elif a == "lineHeight" %} {% set styles = (styles.push("line-height:"+ v +";"), styles) %}
+    {% elif a == "transform" %} {% set styles = (styles.push("text-transform:"+ v +";"), styles) %}
+    {% elif a == "align" %} {% set styles = (styles.push("text-align:"+ v +";"), styles) %}
+    {% elif a == "wordSpacing" %} {% set styles = (styles.push("word-spacing:"+ v +";"), styles) %}
+    {% elif a == "letterSpacing" %} {% set styles = (styles.push("letter-spacing:"+ v +";"), styles) %}
+    {% elif a == "whiteSpace" %} {% set styles = (styles.push("white-space:"+ v +";"), styles) %}
+    {% elif a == "indent" %} {% set styles = (styles.push("text-indent:"+ v +";"), styles) %}
+    {% elif a == "shadow" %} {% set styles = (styles.push("text-shadow:"+ v +";"), styles) %}
+    {% elif a == "decoration" %} {% set styles = (styles.push("text-decoration:"+ v +";"), styles) %}
+    {% else %} {% set styles = (styles.push("font-"+ a +":"+ v +";"), styles) %}
+    {% endif %}
+  {% endfor %}
+  {% if addAttr %}
+    {% set return = 'style="'+ styles | join(" ") + '"' %}
+  {% else %}
+    {% set return = styles | join(" ") %}
+  {% endif %}
+  {% if styles | length > 0 %}
+    {{ return | safe }}
+  {% endif %}
+{% endmacro %}
+
+{% macro setLinkStyles(cssObj, addAttr = true) %}
+  {% set return = "" %}
+  {% set styles = [] %}
+  {% for a, v in cssObj %}
+    {% if a == "color" %} {% set styles = (styles.push(a +":"+ v +";"), styles) %}
+    {% elif a == "background" %} {% set styles = (styles.push("background-color:"+ v +";"), styles) %}
+    {% elif a == "decoration" %} {% set styles = (styles.push("text-decoration:"+ v +";"), styles) %}
+    {% endif %}
+  {% endfor %}
+  {% if addAttr %}
+    {% set return = 'style="'+ styles | join(" ") + '"' %}
+  {% else %}
+    {% set return = styles | join(" ") %}
+  {% endif %}
+  {% if styles | length > 0 %}
+    {{ return | safe }}
+  {% endif %}
+{% endmacro %}
+
+{% macro setBorderStyles(cssObj, addAttr = true) %}
+  {% set return = "" %}
+  {% set styles = [] %}
+  {% for a, v in cssObj %}
+    {% set styles = (styles.push("border-"+ a +":"+ v +";"), styles) %}
+  {% endfor %}
+  {% if addAttr %}
+    {% set return = 'style="'+ styles | join(" ") + '"' %}
+  {% else %}
+    {% set return = styles | join(" ") %}
+  {% endif %}
+  {% if styles | length > 0 %}
+    {{ return | safe }}
+  {% endif %}
+{% endmacro %}
+
+{% macro setStyle(css, value, default) %}
+  {% set return = "" %}
+  {% if value %}
+    {% set return = css + ":" + value %}
+  {% else %}
+    {% if default %}
+      {% set return = css + ":" + default %}
+    {% endif %}
+  {% endif %}
+  {{ return | safe}}
+{% endmacro %}
+
+{% macro setPaddingValue(value, id = "") %}
+  {% if value | typeOf == "number" %}
+    {{ value }}
+  {% elif value | typeOf == "object" and id %}
+    {% if value[id] %}
+      {{ value[id] }}
+    {% else %}
+      {{ 20 }}
+    {% endif %}
+  {% else %}
+    {{ 20 }}
+  {% endif %}
+{% endmacro %}
+
+{% macro setPaddingClass(class, id = "") %}
+  {% if class | typeOf == "string" %}
+    {{ class }}
+  {% elif class | typeOf == "object" and id %}
+    {% if class[id] %}
+      {{ class[id] }}
+    {% else %}
+      {{ "content-spacing" }}
+    {% endif %}
+  {% else %}
+    {{ "content-spacing" }}
+  {% endif %}
+{% endmacro %}
+
+{% macro setSpacer(size, id = "", hidden = false) %}
+  {% if size | typeOf == "number" and size > 0 %}
+    {%- spacer size, hidden -%}
+  {% elif size | typeOf == "object" and id %}
+    {% if size[id] %}
+      {%- spacer size[id], hidden -%}
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{% macro setTable(options) %}
+  <table {{ setAttr("align", options.align, "left") | trim }} {{ setAttr("background", options.background.image) | trim }} {{ setAttr("bgcolor", options.background.color) | trim }} border="0" cellspacing="0" cellpadding="0" style="{{ setBgStyles(options.background, false) | trim }} {{ setBorderStyles(options.border, false) | trim }}" {{ setAttr("width", options.width, "100%") | trim }}><tbody><tr>
+  {%- if options.addGutters | typeOf == "boolean" -%}
+    <td class="{{ setPaddingClass(options.paddingClass, 'left') | trim }}" style="font-size:0px; line-height:0px;" width="{{ setPaddingValue(options.paddingSize, 'left') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ setPaddingValue(options.paddingSize, 'left') | trim }}" height="5" alt="" /></td>
+  {%- endif -%}
+  {%- if options.singleColumn -%}
+    <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0" >
+      {{- setSpacer(options.spacer, "top") | trim -}}
+  {%- endif -%}
+    {{- caller() -}}
+  {%- if options.singleColumn -%}
+      {{- setSpacer(options.spacer, "bottom") | trim -}}
+    </td>
+  {%- endif -%}
+  {%- if options.addGutters | typeOf == "boolean" -%}
+    <td class="{{ setPaddingClass(options.paddingClass, 'right') | trim }}" style="font-size:0px; line-height:0px;" width="{{ setPaddingValue(options.paddingSize, 'right') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ setPaddingValue(options.paddingSize, 'right') | trim }}" height="5" alt="" /></td>
+  {%- endif -%}
+  </tr></tbody></table>
+{% endmacro %}
+
+{% macro setImage(options) %}
+  {% set imageAttrs = {
+    tableAttrs: options.tableAttrs,
+    class: options.class,
+    url: options.url,
+    width: options.width,
+    height: options.height,
+    alt: options.alt,
+    align: options.align,
+    link: options.link
+  } %}
+  {% include "../fragments/image.njk" %}
+{% endmacro %}
+
+{% macro setText(options, content) %}
+  {% set rText = content if content else options.text %}
+  {% set textAttrs = {
+    tableAttrs: options.tableAttrs,
+    font: options.font,
+    classAlign: options.classAlign,
+    link: options.link,
+    text: rText
+  } %}
+  {% include "../fragments/text.njk" %}
+{% endmacro %}
+
+{% macro setButton(options, content) %}
+  {% set rText = content if content else options.text %}
+      {{ options | log }}
+  {% set buttonAttrs = {
+    tableAttrs: options.tableAttrs,
+    font: options.font,
+    link: options.link,
+    leftImage: options.leftImage,
+    rightImage: options.rightImage,
+    text: rText
+  } %}
+  {% include "../fragments/button.njk" %}
+{% endmacro %}
+
+{% macro setList(options, text) %}
+  {% set listAttrs = {
+    tableAttrs: options.tableAttrs,
+    bullet: options.bullet,
+    font: options.font,
+    items: options.items
+  } %}
+  {% if options.type == "disc" %}
+    {% include "./bullet_list.njk" %}
+  {% elif options.type == "decimal" %}
+    {% include "./decimal_list.njk" %}
+  {% elif options.type == "roman" %}
+    {% include "./roman_list.njk" %}
+  {% elif options.type == "letter" %}
+    {% include "./letter_list.njk" %}
+  {% elif options.type == "icon" %}
+    {% include "./icon_list.njk" %}
+  {% endif %}
+{% endmacro %}
+
+{% macro addGutter(width, class) %}
+    <td class="{{ setPaddingClass(class) | trim }}" style="font-size:0px; line-height:0px;" width="{{ setPaddingValue(width) | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ setPaddingValue(width) | trim }}" height="5" alt="" /></td>
+{% endmacro %}

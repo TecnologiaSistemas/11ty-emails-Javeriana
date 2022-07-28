@@ -1,0 +1,65 @@
+{% import "./template-parts/components/functions.njk" as function %}
+
+{# baseAttrs = {
+    background: {
+      color: background color of the tables in a valid format,
+      image: object {
+        url: URI for the image as a background
+        styles: css styles to apply to the table usually used with the background image
+      }
+    }
+  }
+#}
+
+{% set bgColor = baseAttrs.background.color if baseAttrs.background.color else "#ffffff" %}
+{% set bgImage = baseAttrs.background.image.url if baseAttrs.background.image.url else false %}
+{% set bgImageStyles = baseAttrs.background.image.styles if baseAttrs.background.image.styles else false %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="date=no" />
+	<meta name="format-detection" content="address=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<title>{{ main.university.name }}</title>
+	<style type="text/css" media="screen">
+		{% include "./template-parts/common/css-rules.njk" %}
+	</style>
+	
+</head>
+
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#ffffff; -webkit-text-size-adjust:none; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px;">
+	<!-- Outliner -->
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="{{ styles.colors.backgroundColor }}">
+		<tbody>
+			<tr>
+				<td align="center" valign="top" style="font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0;">
+					<!-- Container -->
+					<table  width="600" class="mobile-shell" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr>
+								<td class="td" {{ function.setAttr('bgcolor', baseAttrs.background.color) }} style="width:600px; min-width:600px; font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0; {{ function.setBgStyles(baseAttrs.background, false) }}">
+									<!-- /Header Block -->
+									{% block header %}{% endblock %}
+									<!-- /Header Block -->
+									<!-- Content Block -->
+									{% block mainContent %}{% endblock %}
+									<!-- /Contenet Block -->
+									<!-- Footer Block -->
+									{% block footer %}{% endblock %}
+									<!-- /Footer Block -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- /container -->
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- /Outliner -->
+</body>	
+</html>

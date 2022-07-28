@@ -1,0 +1,52 @@
+{% import "../components/functions.njk" as function %}
+
+{# listAttrs: {
+  tableAttrs: see table fragment for options,
+  bullet: options for the bullet, see individual components for options,
+  font: see text fragment font attributes,
+  items: [
+    text or,
+    {
+      text; see text fragment for options,
+      image: see image fragment for options
+    }
+  ]
+}
+#}
+
+{% set tableAttrs = listAttrs.tableAttrs %}
+
+{% extends "./table.njk" %}
+
+{%- block cellContent -%}
+  <table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
+    {%- for l in listAttrs.items -%}
+       <tr>
+        {%- if listAttrs.bullet -%}
+          <td style="font-size:0px; line-height:0px; text-align:left;" {{ function.setAttr('valign', listAttrs.bullet.valign, "top") | trim }} {{ function.setAttr('width', listAttrs.bullet.width) | trim }}>{%- block bullet -%}{%- endblock -%}</td>
+          <td class="{{ function.setPaddingClass(tableAttrs.paddingClass, 'inner') | trim }}" style="font-size:0px; line-height:0px;" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'inner') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'inner') | trim }}" height="5" alt="" /></td>
+        {%- endif -%}
+        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0" {{ function.setAttr('valign', listAttrs.valignText, "top") | trim }}>
+          {%- if l.text -%}
+            {% set textAttrs = {
+                tableAttrs: {},
+                font: listAttrs.font,
+                text: l.text,
+                link: l.link
+              } %}
+            {% include "./text.njk" %}
+          {%- else -%}
+            {% set textAttrs = {
+                tableAttrs: {},
+                font: listAttrs.font,
+                text: l
+              } %}
+            {% include "./text.njk" %}
+          {%- endif -%}
+        </td></tr>
+        {%- if not loop.last -%}
+          <tr><td colspan="3" style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">{{ function.setSpacer(listAttrs.spacer, "inner") | trim }}</td></tr>
+        {%- endif -%}
+      {%- endfor -%}
+    </tbody></table>
+{%- endblock -%}

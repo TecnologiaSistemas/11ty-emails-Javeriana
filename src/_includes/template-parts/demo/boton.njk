@@ -1,0 +1,38 @@
+{% set font = {
+  family: "Arial, sans-serif",
+  color: "blue",
+  size: "16px",
+  lineHeight: "24px"
+} %}
+
+{% set imagen = {
+  url: "https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/08/Warzone-scaled.jpg?resize=800%2C481&ssl=1",
+  width: "50%"
+} %}
+
+{% set bullet = {
+  font: font
+} %}
+
+{% set buttonAttrs = {
+  tableAttrs: {
+    singleColumn: true,
+    addGutters: true,
+    background: {
+      color: "red"
+    },
+    paddingSize: {
+      inner: 30
+    },
+    spacer: 20
+  },
+  font: font,
+  link: {
+    url: "#",
+    color: "white"
+  },
+  text: "botton",
+  leftImage: imagen,
+  rightImage: imagen
+} %}
+{% extends "../fragments/button.njk" %}

@@ -1,0 +1,18 @@
+{% extends "../fragments/list.njk" %}
+
+{# listAttrs = {
+    bullet: see image fragment for options
+  }
+  Inherit options form list fragment
+#}
+
+{% block bullet %}
+  {% set imageAttrs = {
+    tableAttrs: {},
+    url: l.image.url,
+    alt:  l.image.alt,
+    width: listAttrs.bullet.width,
+    height: listAttrs.bullet.height
+  } %}
+  {% include "../fragments/image.njk" %}
+{% endblock %}

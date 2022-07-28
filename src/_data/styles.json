@@ -1,0 +1,50 @@
+{
+  "font": {
+    "family": "Arial, Helvetica, sans-serif",
+    "size": {
+      "small": 11,
+      "medium": 14,
+      "base": 16,
+      "large": 20,
+      "2xlarge": 32
+    },
+    "small": 11,
+    "medium": 14,
+    "base": 16,
+    "large": 20,
+    "2xlarge": 32
+  },
+  "colors": {
+    "base": "#333333",
+    "baseLight": "#999999",
+    "primary": "#ff5900",
+    "secondary": "#333333",
+    "light": "#efefef",
+    "backgroundColor": "#f5f5f5"
+  },
+  "quote": {
+    "family": "Lucida Bright', Georgia, Times, serif"
+  },
+  "spacer": {
+    "small": 10,
+    "default": 20,
+    "medium": 30,
+    "large": 40,
+    "2xlarge": 80,
+    "3xlarge": 120
+  },
+  "padding": {
+    "mobile": {
+      "small": 10,
+      "default": 15,
+      "medium": 30,
+      "large": 40
+    },
+    "desktop": {
+      "small": 10,
+      "default": 20,
+      "medium": 30,
+      "large": 40
+    }
+  }
+}

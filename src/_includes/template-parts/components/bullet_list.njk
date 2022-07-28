@@ -1,0 +1,16 @@
+{% extends "../fragments/list.njk" %}
+
+{# listAttrs = {
+    bullet: see text fragment for options
+  }
+  Inherit options form list fragment
+#}
+
+{% block bullet %}
+  {% set textAttrs = {
+    tableAttrs: {},
+    font: listAttrs.bullet.font,
+    text: "&bull;" if not listAttrs.bullet.text else listAttrs.bullet.text
+  } %}
+  {% include "../fragments/text.njk" %}
+{% endblock %}

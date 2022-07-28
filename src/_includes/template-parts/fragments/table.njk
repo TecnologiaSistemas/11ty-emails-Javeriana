@@ -1,0 +1,61 @@
+{% import "../components/functions.njk" as function %}
+
+{# tableAttrs {
+  addContainer: true to add a tabel and tr tags below options only applies if this value is true,
+  align: left, center or right options DEFAULT left,
+  singleColumn: true to add a td tag for content OMIT for only set a tr,
+  addGutters: true to set cells to the left and right of the central td tag ONLY if singleColumn is true OMMIT to hide
+  valign: set the vertical aligment for a cell if singleColumn is true OPTIONAL,
+  background: {
+    color: css color of the backgroung table OPTIONAL,
+    image: url of the background image for the table OPTIONAL,
+    repeat: css style for background repeat options OPTIONAL,
+    position: css style for background position options OPTIONAL,
+    size: css style for background size OPTIONAL,
+  },
+  border: {
+    width: specifies the width of the four borders,
+    color: used to set the color of the four borders,
+    style: style of the borders,
+    radius: used to add rounded borders to an element
+    # Its possible  to add a style for a individual side of the border as on a web page #
+  },
+  paddingSize: if number applies the same for all padding sizes ONLY IF options singleColumn is true otherwise {
+    left: for the left padding,
+    right: for the right padding
+  } DEFAULT 20
+  paddingClass: if string applies the same class for all padding sizes ONLY IF options singleColumn is true otherwise {
+    left: for the left padding,
+    right: for the right padding
+  } DEFAULT conent-spacing,
+  spacer: if number applies the same for all spacers sizes ONLY IF options singleColumn is true otherwise {
+    top: for the top spacer,
+    bottom: for the bottom spacer
+  } DEFAULT NONE
+} #}
+
+{%- if tableAttrs.addContainer or forceContainer -%}
+  <table {{ function.setAttr("align", tableAttrs.align, "left") | trim }} {{ function.setAttr("background", tableAttrs.background.image) | trim }} {{ function.setAttr("bgcolor", tableAttrs.background.color) | trim }} border="0" cellspacing="0" cellpadding="0" style="{{ function.setBgStyles(tableAttrs.background, false) | trim }} {{ function.setBorderStyles(tableAttrs.border, false) | trim }}" {{ function.setAttr("width", tableAttrs.width, "100%") | trim }}><tbody><tr>
+{%- endif -%}
+{%- if tableAttrs.singleColumn or forceContainer -%}
+  {%- if tableAttrs.addGutters | typeOf == "boolean" -%}
+    <td class="{{ function.setPaddingClass(tableAttrs.paddingClass, 'left') | trim }}" style="font-size:0px; line-height:0px;" {{ function.setAttr("valign", tableAttrs.valign) | trim }} width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'left') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'left') | trim }}" height="5" alt="" /></td>
+  {%- endif -%}
+    <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0" >{{ function.setSpacer(tableAttrs.spacer, "top") | trim }}
+{%- endif -%}
+
+{%- block cellTopMarkup %}{% endblock -%}
+
+{%- block cellContent %}{% endblock -%}
+
+{%- block cellBottomMarkup %}{% endblock -%}
+
+{%- if tableAttrs.singleColumn or forceContainer -%}
+    {{ function.setSpacer(tableAttrs.spacer, "bottom") | trim }}</td>
+  {%- if tableAttrs.addGutters | typeOf == "boolean" -%}
+        <td class="{{ function.setPaddingClass(tableAttrs.paddingClass, 'right') | trim }}" style="font-size:0px; line-height:0px;" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'right') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'right') | trim }}" height="5" alt="" /></td>
+  {%- endif -%}
+{%- endif -%}
+{%- if tableAttrs.addContainer or forceContainer -%}
+  </tr></tbody></table>
+{% endif %}

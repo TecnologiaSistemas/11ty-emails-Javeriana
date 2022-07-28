@@ -1,0 +1,31 @@
+{
+  "university": {
+    "name": "11ty Emails",
+    "logo": {
+      "color": "/images/uft_online_logo_color.png",
+      "white": "/images/uft_online_logo_blanco.png",
+      "width": 130
+    },
+    "url": "https://aplatam.com"
+  },
+  "social": [
+    {
+      "name": "facebook",
+      "link": "https://www.facebook.com/universidad.javerianacali/",
+      "icon": "https://virtual.javerianacali.edu.co/file/img/icon_facebook.png",
+      "altTitle": "Encuentranos en Facebook"
+    }
+  ],
+  "contactOptions": [
+    {
+      "name": "phone",
+      "icon": "https://virtual.javerianacali.edu.co/file/img/icon-b_phone.png",
+      "title": "Teléfono",
+      "text": "57 1593 8718",
+      "link": "tel:+15715938718",
+      "altTitle": "",
+      "prependText": ". ",
+      "appendText": ""
+    }
+  ]
+}

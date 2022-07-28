@@ -1,0 +1,61 @@
+{% set font = {
+  family: "Arial, sans-serif",
+  color: "blue",
+  size: "16px",
+  lineHeight: "24px",
+  transform: "uppercase"
+} %}
+
+{% set imagen = {
+  url: "https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/08/Warzone-scaled.jpg?resize=800%2C481&ssl=1",
+  width: "100%"
+} %}
+
+{% set bullet = {
+  font: font
+} %}
+
+{% set listAttrs = {
+  tableAttrs: {
+    addContainer: true,
+    singleColumn: true,
+    addGutters: true,
+    background: {
+      color: "white"
+    },
+    spacer: {
+      inner: 30
+    }
+  },
+  bullet: bullet,
+  font: font,
+  items: [
+    "Items 1",
+    {
+      text: "item 2"
+    }
+  ]
+} %}
+{% extends "../components/letter_list.njk" %}
+
+{% block textContent %}
+  {% markdown "demo.md"%}
+  {% set headerAttrs = {
+    tableAttrs: {
+      background: {
+        color: "blue"
+      }
+    },
+    image: {
+      url: "https://i.embluejet.com/ImagenesMoxie/31505/images/AP_header.png",
+      width: "100%",
+      alt: "AP Latam"
+    }
+  } %}
+  {% include "../components/header.njk" %}
+{% endblock %}
+
+{% block image %}
+  {{ super() }}
+  <img src="https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/08/Warzone-scaled.jpg?resize=800%2C481&ssl=1" width="100%" />
+{% endblock %}

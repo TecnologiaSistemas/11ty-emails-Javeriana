@@ -1,0 +1,19 @@
+{% import "../components/functions.njk" as function %}
+
+{# tableAttrs = see table fragment for options #}
+
+{% set forceContainer = true %}
+
+{% extends "../fragments/table.njk" %}
+
+{% block cellTopMarkup %}
+  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tbody>
+      <tr>
+{% endblock %}
+
+{% block cellBottomMarkup %}
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

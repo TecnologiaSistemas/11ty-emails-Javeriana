@@ -1,0 +1,56 @@
+{% import "../components/functions.njk" as function %}
+
+{# buttonAttrs = {
+    tableAttrs: See table fragment for options,
+    font: See text fragment for options,
+    link: See text fragment for options,
+    leftImage: see image frgament for options,
+    rightImage: see image fragment for options,
+    text: text of the button
+  }
+#}
+{% set textAttrs = buttonAttrs %}
+{% set tableAttrs = buttonAttrs.tableAttrs %}
+{% set forceContainer = true %}
+
+{% extends "./text.njk" %}
+
+{%- block cellContent -%}
+  <table border="0" cellspacing="0" cellpadding="0" width="100%"><tbody><tr>
+    {%- if buttonAttrs.leftImage -%}
+      <td style="font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0;" {{ function.setAttr("width", buttonAttrs.leftImage.width) | trim }}>
+        {% set forceContainer = false %}
+        {% set imageAttrs = {
+          tableAttrs: {},
+          class: buttonAttrs.leftImage.class,
+          url: buttonAttrs.leftImage.url,
+          width: buttonAttrs.leftImage.width,
+          height: buttonAttrs.leftImage.height,
+          align: "center",
+          link: buttonAttrs.link
+        } %}
+        {% include "./image.njk" %}
+      </td>
+      <td class="{{ function.setPaddingClass(tableAttrs.paddingClass, 'inner') | trim }}" style="font-size:0px; line-height:0px;" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'inner') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'inner') | trim }}" height="5" alt="" /></td>
+    {%- endif -%}
+    <td style="font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0;">
+      {{- super() -}}
+    </td>
+    {%- if buttonAttrs.rightImage -%}
+      <td class="{{ function.setPaddingClass(tableAttrs.paddingClass, 'inner') | trim }}" style="font-size:0px; line-height:0px;" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'inner') | trim }}"><img src="https://i.embluejet.com/ImagenesMoxie/33464/images/spacer.gif" width="{{ function.setPaddingValue(tableAttrs.paddingSize, 'inner') | trim }}" height="5" alt="" /></td>
+      <td style="font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0;" {{ function.setAttr("width", buttonAttrs.rightImage.width) | trim }}>
+        {% set forceContainer = false %}
+        {% set imageAttrs = {
+          tableAttrs: {},
+          class: buttonAttrs.rightImage.class,
+          url: buttonAttrs.rightImage.url,
+          width: buttonAttrs.rightImage.width,
+          height: buttonAttrs.rightImage.height,
+          align: "center",
+          link: buttonAttrs.link
+        } %}
+        {% include "./image.njk" %}
+      </td>
+    {%- endif -%}
+  </tr></tbody></table>
+{%- endblock -%}

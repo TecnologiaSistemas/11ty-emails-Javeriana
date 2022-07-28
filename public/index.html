@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="format-detection" content="date=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>11ty Emails</title>
+  <style type="text/css" media="screen">
+    body {
+      padding: 0 !important;
+      margin: 0 !important;
+      display: block !important;
+      min-width: 100% !important;
+      width: 100% !important;
+      background: #ffffff;
+      -webkit-text-size-adjust: none;
+      mso-cellspacing: 0px;
+      mso-padding-alt: 0px 0px 0px 0px;
+    }
+
+    p {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    img {
+      -ms-interpolation-mode: bicubic;
+      /* Allow smoother rendering of resized image in Internet Explorer */
+    }
+
+    table {
+      mso-cellspacing: 0px;
+      mso-padding-alt: 0px 0px 0px 0px;
+    }
+
+    div[class="lm-show"] {
+      display: block;
+    }
+
+    div[class="dm-show"] {
+      display: none;
+    }
+
+    @media only screen and (max-device-width: 480px),
+    only screen and (max-width: 480px) {
+      table[class='mobile-shell'] {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+
+      td[class='td'] {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+
+      td[class='td hide-bg'] {
+        width: 100% !important;
+        min-width: 100% !important;
+        background-image: none !important;
+      }
+
+      table[class='center'],
+      table[class="dm-hide-img-center"] {
+        margin: 0 auto !important;
+      }
+
+      table[class="hide-bg"] {
+        background-image: none !important;
+      }
+
+      table[class='left'] {
+        margin-left: auto !important;
+      }
+
+      table[class="left hide-bg"] {
+        background-image: none !important;
+        margin-right: auto !important;
+      }
+
+      table[class="center hide-bg"] {
+        background-image: none !important;
+        margin: 0 auto !important;
+      }
+
+      table[class='right'] {
+        margin-right: auto !important;
+      }
+
+      table[class="right hide-bg"] {
+        background-image: none !important;
+        margin-left: auto !important;
+      }
+
+      th[class='column'] {
+        float: left !important;
+        width: 100% !important;
+        display: block !important;
+      }
+
+      td[class='content-spacing-small'] {
+        width: 10px !important;
+      }
+
+      td[class='content-spacing'] {
+        width: 15px !important;
+      }
+
+      td[class='content-spacing-medium'] {
+        width: 30px !important;
+      }
+
+      td[class='content-spacing-large'] {
+        width: 40px !important;
+      }
+
+      div[class='mobile-br-small'] {
+        height: 10px !important;
+      }
+
+      div[class='mobile-br'] {
+        height: 20px !important;
+      }
+
+      div[class='mobile-br-medium'] {
+        height: 30px !important;
+      }
+
+      div[class='mobile-br-large'] {
+        height: 40px !important;
+      }
+
+      div[class='mobile-br-2xlarge'] {
+        height: 80px !important;
+      }
+
+      div[class='mobile-br-3xlarge'] {
+        height: 120px !important;
+      }
+
+      table[class='m-table'],
+      th[class='m-td'],
+      td[class='m-td'],
+      div[class='hide-for-mobile'],
+      span[class='hide-for-mobile'] {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        min-height: 0 !important;
+      }
+
+      div[class='img-m-center'] {
+        text-align: center !important;
+      }
+
+      div[class='img-m-left'] {
+        text-align: left !important;
+      }
+
+      div[class='img-m-right'] {
+        text-align: right !important;
+      }
+
+      div[class='fluid-img'] img,
+      td[class='fluid-img'] img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      div[class='text-center'] {
+        text-align: center !important;
+      }
+
+      div[class='text-right'] {
+        text-align: right !important;
+      }
+
+      hr[class='hr-center'] {
+        margin: 0 auto !important;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      table[class="dm-hide-img-center"] {
+        background: none !important;
+      }
+
+      div[class="lm-show"] {
+        display: none !important;
+      }
+
+      div[class="dm-show"] {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#ffffff; -webkit-text-size-adjust:none; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px;">
+  <!-- Outliner -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f5f5f5">
+    <tbody>
+      <tr>
+        <td align="center" valign="top" style="font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0;">
+          <!-- Container -->
+          <table width="600" class="mobile-shell" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="td" style="width:600px; min-width:600px; font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0; 
+  
+  
+  
+  
+    
+  
+  
+">
+                  <!-- /Header Block -->
+                  <table align="left" bgcolor="blue" border="0" cellspacing="0" cellpadding="0" style="background-color:blue; " width="100%">
+                    <tbody>
+                      <tr>
+                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                  <table align="left" border="0" cellspacing="0" cellpadding="0" style=" " width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                          <div style="font-size:0px; line-height:0px; "><img src="https://i.embluejet.com/ImagenesMoxie/31505/images/AP_header.png" border="0" width="100%" alt="AP Latam"></div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- /Header Block -->
+                  <!-- Content Block -->
+                  <table align="left" background="https://los40es00.epimg.net/los40/imagenes/2020/06/25/videojuegos/1593083478_869544_1593084233_gigante_normal.jpg" border="0" cellspacing="0" cellpadding="0" style="background-image:url(https://los40es00.epimg.net/los40/imagenes/2020/06/25/videojuegos/1593083478_869544_1593084233_gigante_normal.jpg); background-position:center top; background-repeat:no-repeat; background-size:cover; " width="100%">
+                    <tbody>
+                      <tr>
+                        <th class="column" width="50%">
+                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                            <tr>
+                              <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                            </tr>
+                          </table>
+                          <table align="left" border="0" cellspacing="0" cellpadding="0" style=" " width="100%">
+                            <tbody>
+                              <tr>
+                                <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                                <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                  <table align="left" bgcolor="red" border="0" cellspacing="0" cellpadding="0" style="background-color:red; " width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                                            <tr>
+                                              <td height="10" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                                            </tr>
+                                          </table>
+                                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td style="font-size:0px; font-weight:normal; line-height:0px; padding:0; margin:0; Margin:0;">
+                                                  <div class="text" style="color:white; font-family:Arial, sans-serif; font-size:18px; line-height:24px; text-align: center; font-weight:bold;">Call 2 action para Dona</div>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                                            <tr>
+                                              <td height="10" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                                <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                            <tr>
+                              <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                            </tr>
+                          </table>
+                        </th>
+                        <th class="column">
+                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                            <tr>
+                              <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                            </tr>
+                          </table>
+                          <table align="left" border="0" cellspacing="0" cellpadding="0" style=" " width="100%">
+                            <tbody>
+                              <tr>
+                                <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                                <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                  <div class="text" style="color:white; font-family:Arial, sans-serif; font-size:18px; line-height:24px; text-align: center; font-weight:bold;">Estoy usando el html de Gerencia tributaria, quieres que lo deje y me avisas cuando termines? porque voy a tardar un poco</div>
+                                </td>
+                                <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                            <tr>
+                              <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table align="left" bgcolor="blue" border="0" cellspacing="0" cellpadding="0" style="background-color:blue; " width="100%">
+                    <tbody>
+                      <tr>
+                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tbody>
+                              <tr>
+                                <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                  <table align="left" border="0" cellspacing="0" cellpadding="0" style=" " width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                                          <div style="font-size:0px; line-height:0px; "><img src="https://i.embluejet.com/ImagenesMoxie/31505/images/AP_header.png" border="0" width="100%" alt="AP Latam"></div>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                                <pre><code>  &lt;/tr&gt;
+&lt;/tbody&gt;
+</code></pre>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table align="left" bgcolor="red" border="0" cellspacing="0" cellpadding="0" style="background-color:red; " width="100%">
+                    <tbody>
+                      <tr>
+                        <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                          <p style="color: yellow; font-family: sans-serif; font-size: 14px; line-height: 24px;">Ejemplo porque pregunto Angie</p>
+                          <div style="color: white; font-family: sans-serif; font-size: 14px; line-height: 24px;">
+                            <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                              <tr>
+                                <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                              </tr>
+                            </table>
+                            <h1 style="font-size:18px;">User-Defined Templates Warning</h1>
+                            <p>nunjucks does not sandbox execution so it is not safe to run user-defined templates or inject user-defined content into template definitions. On the server, you can expose attack vectors for accessing sensitive data and remote code execution. On the client, you can expose cross-site scripting vulnerabilities even for precompiled templates (which can be mitigated with a strong CSP). See this issue for more information.</p>
+                            <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                              <tr>
+                                <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </td>
+                        <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- /Contenet Block -->
+                  <!-- Footer Block -->
+                  <table align="left" border="0" cellspacing="0" cellpadding="0" style=" " width="100%">
+                    <tbody>
+                      <tr>
+                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                          <div style="font-size:0px; line-height:0px; "><img src="https://i.embluejet.com/ImagenesMoxie/31505/images/AP_footer.jpg" border="0" width="100%"></div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table align="left" bgcolor="#0032e8" border="0" cellspacing="0" cellpadding="0" style="background-color:#0032e8; " width="100%">
+                    <tbody>
+                      <tr>
+                        <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                        <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0">
+                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                            <tr>
+                              <td height="20" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                            </tr>
+                          </table>
+                          <div style="font-size:0px; line-height:0px; text-align:center"><img src="https://i.embluejet.com/ImagenesMoxie/31505/images/ap_logo.png" border="0" width="150"></div>
+                          <table class="spacer" width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">
+                            <tr>
+                              <td height="15" style="font-size:0px; line-height:0px; text-align:center; width:100%; min-width:100%; mso-cellspacing:0px; mso-padding-alt:0px 0px 0px 0px">&nbsp;</td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td class="content-spacing" style="font-size:0px; line-height:0px;" width="20">&nbsp;</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- /Footer Block -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- /container -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- /Outliner -->
+</body>
+
+</html>

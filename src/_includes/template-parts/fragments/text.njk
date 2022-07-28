@@ -1,0 +1,48 @@
+{% import "../components/functions.njk" as function %}
+
+{# textAttrs = {
+    tableAttrs: see table fragment for options,
+    font: {
+      family: css declaration for font face,
+      size: number to set the font size,
+      lineHeight: number to set the font line height default font size + 8 pixels,
+      weight: font weigth accepts any valid css value,
+      transform: accepts any valid css value,
+      align: accepts any css valid value,
+      color: accepts any css valid value,
+      wordSpacing: used to specify the space between the words in a text,
+      letterSpacing: sed to specify the space between the characters in a text,
+      whiteSpace: specifies how white-space inside an element is handled,
+      shadow: adds shadow to text,
+      decoration: used to add a decoration line to text
+    },
+    classAlign: complementary text to specify a class to the text SEE CSS RULES DEFAULT None,
+    link: {
+      href: URI to link the image ot an external resource REQUIERED,
+      title: text fot title attribute DEFAULT None,
+      target: "_blank" for new window DEFAULT None,
+      color: color of the link
+    },
+    text: set the content text if this var is declared the textContent block is omited
+  }
+#}
+
+{% set tableAttrs = textAttrs.tableAttrs %}
+
+{% extends "./table.njk" %}
+
+{%- block cellContent -%}
+  <div class="text {%- if textAttrs.classAlign -%} -{{ textAttrs.classAlign }} {%- endif -%}" {{ function.setTextStyles(textAttrs.font) | trim }}>
+    {%- if textAttrs.link.href -%}
+      <a href="{{ textAttrs.link.href }}" {{ function.setAttr('target', textAttrs.link.target, "_blank") | trim }} {{ function.setAttr('title', textAttrs.link.title) | trim }} {{ function.setLinkStyles(textAttrs.link, true) | trim }}>
+    {%- endif -%}
+    {%- if not textAttrs.text -%}
+      {%- block textContent -%}{%- endblock -%}
+    {%- else -%}
+        {{- textAttrs.text | safe -}}
+    {%- endif -%}
+    {%- if textAttrs.link.href -%}
+      </a>
+    {%- endif -%}
+  </div>
+{%- endblock -%}

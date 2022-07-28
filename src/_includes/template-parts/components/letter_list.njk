@@ -1,0 +1,18 @@
+{% extends "../fragments/list.njk" %}
+
+{# listAttrs = {
+    bullet: see text fragment for options
+  }
+  Inherit options form list fragment
+#}
+
+{% set startOn = ( listAttrs.bullet.startOn - 1) if listAttrs.bullet.startOn else 0 %}
+
+{% block bullet %}
+  {% set textAttrs = {
+    tableAttrs: {},
+    font: listAttrs.bullet.font,
+    text: (loop.index + startOn) | letter 
+  } %}
+  {% include "../fragments/text.njk" %}
+{% endblock %}

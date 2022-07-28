@@ -1,0 +1,27 @@
+{% import "../components/functions.njk" as function %}
+
+{# headerAttrs = {
+    tableAttrs: see table fragment for options,
+    image: see image fragment for options 
+  }
+#}
+
+{% set tableAttrs = headerAttrs.tableAttrs %}
+
+{% extends "./table_columns.njk" %}
+
+{% block cellContent %}
+  <td style="font-size:0px; line-height:0px; padding:0; margin:0; font-weight:normal; Margin:0" >
+    {% set imageAttrs = {
+      tableAttrs: {},
+      class: headerAttrs.image.class,
+      url: headerAttrs.image.url,
+      width: headerAttrs.image.width,
+      height: headerAttrs.image.height,
+      alt: headerAttrs.image.alt,
+      align: headerAttrs.image.align,
+      link: headerAttrs.image.link
+    } %}
+    {% include "../fragments/image.njk" %}
+  </td>
+{% endblock %}

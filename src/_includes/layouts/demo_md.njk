@@ -1,0 +1,7 @@
+{% import "../template-parts/components/functions.njk" as function %}
+
+{% extends "./general.njk" %}
+
+{% block mainContent %}
+  {{ content | safe }}
+{% endblock %}

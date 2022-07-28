@@ -1,0 +1,36 @@
+{% import "../components/functions.njk" as function %}
+
+{# imageAttrs = {
+    tableAttrs: see table fragment for options,
+    class: css class for image div container OPTIONAL,
+    url: URI of the image REQUIERED,
+    width: width for the image OPTIONAL DEFAULT 100%,
+    height: height for the image OPTIONAL,
+    alt: alternative text for te image OPTIONAL,
+    align: css valid value to align the image into the div container OPTIONAL,
+    link: {
+      href: URI to link the image ot an external resource REQUIERED,
+      title: text fot title attribute DEFAULT None,
+      target: "_blank" for new window DEFAULT None
+    }
+  }
+#}
+
+{% set tableAttrs = imageAttrs.tableAttrs %}
+
+{% extends "./table.njk" %}
+
+{%- block cellContent -%}
+  <div {{ function.setAttr("class", imageAttrs.class) | trim }} style="font-size:0px; line-height:0px; {{ function.setStyle('text-align', imageAttrs.align) | trim }}">
+    {%- if imageAttrs.link -%}
+      <a href="{{ imageAttrs.link.href }}" {{ function.setAttr("target", imageAttrs.link.target) | trim }} {{ function.setAttr("title", imageAttrs.link.title) | trim }}>
+    {%- endif -%}
+    {% set width = imageAttrs.width if imageAttrs.width else "100%" %}
+    {%- block image -%}
+      <img src="{{ imageAttrs.url }}" border="0" {{ function.setAttr("height", imageAttrs.height) | trim }} {{ function.setAttr("width", imageAttrs.width, "100%") | trim }} {{ function.setAttr("alt", imageAttrs.alt) | trim }}>
+    {%- endblock -%}
+    {%- if imageAttrs.link -%}
+      </a>
+    {%- endif -%}
+  </div>
+{%- endblock -%}
