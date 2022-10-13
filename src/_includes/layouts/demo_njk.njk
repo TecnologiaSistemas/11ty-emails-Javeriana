@@ -1,43 +1,7 @@
 {% import "../template-parts/components/functions.njk" as function %}
 
-{% extends "./general.njk" %}
-
-{% set fontStyle1 = { color: "white", family: "Arial, sans-serif", size: "18px", lineHeight: "24px", align: " center", weight: "bold" } %}
+{% extends "./unapec_maestrias.njk" %}
 
 {% block mainContent %}
-  {% call function.setTable({ background: { image: "https://los40es00.epimg.net/los40/imagenes/2020/06/25/videojuegos/1593083478_869544_1593084233_gigante_normal.jpg", position: "center top", repeat: "no-repeat", size: "cover" }, spacer: 30 }) %}
-
-  <th class="column" width="50%">
-
-    {{ function.setSpacer(20) }}
-    {% call function.setTable({ singleColumn: true, addGutters: true }) %}
-      {{ function.setButton({ tableAttrs: { background: { color: "red" }, spacer: 10 }, font: fontStyle1 }, "Call 2 action") }}
-    {% endcall %}
-    {{ function.setSpacer(20) }}
-
-  </th>
-  <th class="column">
-    {{ function.setSpacer(20) }}
-    {% call function.setTable({ singleColumn: true, addGutters: true }) %}
-      {{ function.setText({ font: fontStyle1 }, "Estoy usando el html de Gerencia tributaria, quieres que lo deje y me avisas cuando termines? porque voy a tardar un poco") }}
-    {% endcall %}
-    {{ function.setSpacer(20) }}
-
-  </th>
-
-  {% endcall %}
-
-  {% set headerAttrs = {
-    tableAttrs: {
-      background: {
-        color: "blue"
-      }
-    },
-    image: {
-      url: "https://i.embluejet.com/ImagenesMoxie/31505/images/AP_header.png",
-      width: "100%",
-      alt: "AP Latam"
-    }
-  } %}
-  {% include "../template-parts/demo/header.njk" %}
+  {{ content | safe }}
 {% endblock %}
