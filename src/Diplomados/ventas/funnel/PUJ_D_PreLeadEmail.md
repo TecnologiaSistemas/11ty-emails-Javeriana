@@ -1,8 +1,8 @@
 ---
-layout: layouts/demo_njk.njk
-permalink: Maestrias/ventas/funnel/UNAPEC_M_PreLeadMail.html
-main_font: {family: "'Open Sans', Arial, Helvetica, sans-serif",size: "18px",lineHeight: "26px",align: "left",color: "#000000",weight: "medium"}
-main_font2: {family: "'Open Sans', Arial, Helvetica, sans-serif",size: "14px",lineHeight: "24px",align: "left",color: "#000000",weight: "medium"}
+layout: layouts/demo_md.njk
+permalink: Diplomados/ventas/funnel/PUJ_D_PreLeadEmail.html
+main_font: {family: "'Open Sans', Arial, Helvetica, sans-serif",size: "24px",lineHeight: "28px",align: "left",color: "#2c5697",weight: "medium"}
+main_font2: {family: "'Open Sans', Arial, Helvetica, sans-serif",size: "14px",lineHeight: "22px",align: "left",color: "#000000",weight: "medium"}
 
 ---
 {% import "template-parts/components/functions.njk" as function %}
@@ -15,7 +15,15 @@ tableAttrs:{
 align: "center"
 },
 font: main_font,
-text: 'Hola, <b>$BF{nombre}</b>'
+text: '¡Hola, <b>$BF{nombre}</b>!'
+}%}
+{% include "template-parts/fragments/text.njk" %}
+
+{% set textAttrs ={
+tableAttrs:{
+},
+font: main_font,
+text: '<hr class="hr-center" width="40" noshade="" size="8" color="#f8cd00" style="margin-left:0;">'
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(20) }}
@@ -24,47 +32,45 @@ tableAttrs:{
 },
 font: main_font2,
 classAlign:"center",
-text: 'Con la <b>$BF{Programa}</b> podrás cubrir por completo el perfil que tu profesión solicita. Para que puedas lograrlo, nos ponemos a tus órdenes para resolver cualquier duda. Contáctanos. '
+text: 'Estudiar en La Javeriana te hace más competitivo en tu área laboral. Conoce más sobre el <b>$BF{nombre}</b> y comienza un cambio en tu vida profesional. Si deseas, puedes contactarnos para platicarte más. '
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(30) }}
 
 {% set buttonAttrs = {
     tableAttrs: {
-      background: { color: "#004993" },
+      background: { color: "#920552" },
       addGutters: true,
       singleColumn: true,
       width: "auto",
       align: "center",
-      spacer: 12,
-      border:{radius:"4px"}
+      spacer: 11,
+      border:{radius:"30px"}
     },
     font: {
       family: "Arial, sans-serif",
       align: "center",
-      size: "13px",
-      lineHeight: "20px",
-      transform: "uppercase"
+      size: "14px",
+      lineHeight: "20px"
     },
     link: { 
       href: "#", 
       color: "white", 
       decoration: "none"
     },
-    text: "<b>DESCARGA EL PLAN DE ESTUDIOS</b>"
+    text: "<b>Descarga el plan de estudios</b>"
   }%}
-{% include "template-parts/fragments/button.njk" %}  
+{% include "template-parts/fragments/button.njk" %} 
 {{ function.setSpacer(30) }}
 {% endcall %}
 {% call function.setTable({ singleColumn: true, addGutters: true, paddingSize: { left: "30", right: "30" }, paddingClass:"content-spacing-medium",background: { color: "#ffffff" } }) %}
-{{ function.setSpacer(30) }}
 
 {% set textAttrs ={
 tableAttrs:{
 },
 font: main_font2,
 classAlign:"center",
-text: 'Inscríbete a la <b>$BF{Programa}</b> y comprueba que UNAPEC es la plataforma que te impulsa a ser candidato a las mejores oportunidades laborales. '
+text: 'El <b>$BF{nombre}</b> te da las herramientas y el conocimiento para enfrentarte a un mundo que cambia día con día. Estudia en la Javeriana y aprende de expertos, en menor tiempo y desde cualquier lugar. '
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(30) }}
@@ -74,7 +80,7 @@ align: "center"
 },
 font: main_font,
 classAlign:"center",
-text: '<b> ¿Cuál es el objetivo del programa?</b>'
+text: '<b> ¿Cuál es nuestro objetivo? </b>'
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(10) }}
@@ -93,7 +99,7 @@ align: "center"
 },
 font: main_font,
 classAlign:"center",
-text: '<b> Habilidades a desarrollar </b>'
+text: '<b> Perfil de egreso  </b>'
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(10) }}
@@ -102,7 +108,7 @@ tableAttrs:{
 },
 font: main_font2,
 classAlign:"center",
-text: '$BF{Habilidades} '
+text: '$BF{egresado} '
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(30) }}
@@ -122,23 +128,27 @@ text: 'Para más información, comunícate con un asesor educativo.'
 
 {% set buttonAttrs = {
     tableAttrs: {
-      background: { color: "#004993" },
+      background: { color: "#EC660C" },
       addGutters: true,
       singleColumn: true,
       width: "auto",
       align: "center",
-      spacer: 12,
-      border:{radius:"4px"}
+      spacer: 11,
+      border:{radius:"30px"}
     },
     font: {
       family: "Arial, sans-serif",
       align: "center",
-      size: "13px",
-      lineHeight: "20px",
-      transform: "uppercase"
+      size: "14px",
+      lineHeight: "20px"
+    },
+     leftImage: {
+        url: "https://virtual.javerianacali.edu.co/file/img/icon_phone.png",
+        width: 24,
+        heigh: 24
     },
     link: { 
-      href: "tel:+18299542208", 
+      href: "tel:+576015938718", 
       color: "white", 
       decoration: "none"
     },
@@ -148,32 +158,31 @@ text: 'Para más información, comunícate con un asesor educativo.'
 {{ function.setSpacer(30) }}
 {% set buttonAttrs = {
     tableAttrs: {
-      background: { color: "#D72438" },
+      background: { color: "#920552" },  
       addGutters: true,
       singleColumn: true,
       width: "auto",
       align: "center",
       spacer: 11,
-      border:{radius:"4px"}
+      border:{radius:"30px"}
     },
     font: {
       family: "Arial, sans-serif",
       align: "center",
-      size: "13px",
-      lineHeight: "20px",
-      transform: "uppercase"
+      size: "14px",
+      lineHeight: "20px"
     },
-     rightImage: {
-        url: "https://pnggrid.com/wp-content/uploads/2021/05/WhatsApp-logo-png-White.png",
+     leftImage: {
+        url: "https://virtual.javerianacali.edu.co/file/img/icon_whatsapp.png",
         width: 24,
         heigh: 24
     },
     link: { 
-      href: "https://api.whatsapp.com/send?phone=18299466132&text=Hola,%20quisiera%20informaci%C3%B3n%20sobre%20el%20proceso%20de%20inscripci%C3%B3n%20a%20los%20programas%20de%20la%20UNAPEC.", 
+      href: "https://api.whatsapp.com/send?phone=573330333376&text=Hola,%20quiero%20saber%20m%C3%A1s%20de%20los%20programas%20de%20Javeriana%20virtual.", 
       color: "white", 
       decoration: "none"
     },
-    text: "<b>CONTÁCTANOS</b>"
+    text: "<b>Contáctanos</b>"
   }%}
 {% include "template-parts/fragments/button.njk" %} 
 {{ function.setSpacer(30) }}

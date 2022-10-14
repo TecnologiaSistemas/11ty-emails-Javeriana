@@ -1,0 +1,213 @@
+
+{% extends "../base.njk" %}
+
+{% block header %}
+ {% call function.setTable({ singleColum:true, background: {color: "#ffffff"} } )%}
+
+    </tr>  
+  <tr>
+    
+  <td width="50%" class="column">
+ {{ function.setSpacer(20) }}
+  {% set headerAttrs = {
+    tableAttrs: {
+      background: {
+        color: "#ffffff"
+      },
+      addGutters: true,
+      paddingSize: { left: "50", right: "50" },
+      paddingClass: {left: "content-spacing-large", right: "content-spacing-large"},
+      spacer: {
+        top: 10,
+        bottom: 10
+      }
+    },
+    image: {
+      url: "https://virtual.javerianacali.edu.co/file/img/javeriana_blue.png",
+      width: "180",
+      alt: "Javeriana Virtual",
+      align: "left",
+      class:"img-m-left",
+      link: {
+        href: "https://virtual.usmp.edu.pe/" 
+      }
+    }
+  } %}
+  {% include "../template-parts/demo/header.njk" %}
+ 
+</td>
+
+{% endcall %}
+
+{% endblock %}
+
+{% block footer %}
+
+  <!--Contact -->
+ {% call function.setTable({ singleColumn:true,addGutters: true, paddingSize: { left: "30", right: "30" }, paddingClass: {left: "content-spacing"}, background: {color: "#2B5696" } } )%}
+{{ function.setSpacer(40) }}
+      {% call function.setTable({} )%}
+
+    </tr>
+    <tr>
+      <td class="column">
+ 
+ <td width="2%">
+  </td>
+  <td>
+{% set imageAttrs = {
+    tableAttrs: {
+    addContainer: true,
+    singleColumn: false,
+    addGutters: true
+    },
+     link: { 
+      href: "https://www.facebook.com/universidad.javerianacali/", 
+      color: "white", 
+      decoration: "none"
+    },
+    url: "https://virtual.javerianacali.edu.co/file/img/icon_facebook.png",
+    width: "25"
+} %}
+{% include "template-parts/fragments/image.njk" %}
+  </td>
+  <td width="2%">
+  </td>
+    <td>
+{% set imageAttrs = {
+    tableAttrs: {
+    addContainer: true,
+    singleColumn: false,
+    addGutters: true
+    },
+    link: { 
+      href: "https://co.linkedin.com/school/javerianacali/", 
+      color: "white", 
+      decoration: "none"
+    },
+    url: "https://virtual.javerianacali.edu.co/file/img/icon_linkedin.png",
+    width: "25"
+} %}
+{% include "template-parts/fragments/image.njk" %}
+  </td>
+    <td width="2%">
+  </td>
+    <td>
+{% set imageAttrs = {
+    tableAttrs: {
+    addContainer: true,
+    singleColumn: false,
+    addGutters: true
+    },
+     link: { 
+      href: "https://www.instagram.com/javerianacali/", 
+      color: "white", 
+      decoration: "none"
+    },
+    url: "https://virtual.javerianacali.edu.co/file/img/icon_instagram.png",
+    width: "25"
+} %}
+{% include "template-parts/fragments/image.njk" %}
+  </td>
+   <td width="2%">
+  </td>
+    <td>
+{% set imageAttrs = {
+    tableAttrs: {
+    addContainer: true,
+    singleColumn: false,
+    addGutters: true
+    
+    }, 
+    link: { 
+      href: "https://twitter.com/javerianacali", 
+      color: "white", 
+      decoration: "none",
+      align:"center"
+    },
+
+    url: "https://virtual.javerianacali.edu.co/file/img/icon_twitter.png",
+    width: "25"
+} %}
+{% include "template-parts/fragments/image.njk" %}
+  </td>
+  <td width="70%" class="m-td">
+  </td>
+   
+  </tr>
+
+     {{ function.setSpacer(10) }}
+     {% set textAttrs = {
+  tableAttrs:{
+  },
+  font: {
+    size: "11px",
+    color: "#ffffff",
+    lineHeight: "18px",
+    family: "'Open Sans', Arial, Helvetica, sans-serif",
+    align: "left",
+    weight: "normal"
+  },
+  classAlign: "center",
+  text: '<b>Correo:</b> <a style="text-decoration:none; color:white; weight:regular;" href="mailto:diplomados@virtualjaverianacali.co" title="Escríbenos"><u>diplomados@virtualjaverianacali.co</u> </a>'
+}%}
+{% include "template-parts/fragments/text.njk" %}
+
+  {% set textAttrs = {
+  tableAttrs:{
+  },
+  font: {
+    size: "11px",
+    color: "#ffffff",
+    lineHeight: "18px",
+    family: "'Open Sans', Arial, Helvetica, sans-serif",
+    align: "left",
+    weight: "normal"
+  },
+  classAlign: "center",
+  text: '<b>Teléfono:</b> <a style="text-decoration:none; color:white; weight:regular;" href="tel:+576015938718" title="Llámanos"><u>601 593 8718</u></a>'
+}%}
+{% include "template-parts/fragments/text.njk" %}
+
+{% set textAttrs = {
+  tableAttrs:{
+  },
+  font: {
+    size: "11px",
+    color: "#ffffff",
+    lineHeight: "18px",
+    family: "'Open Sans', Arial, Helvetica, sans-serif",
+    align: "left",
+    weight: "normal"
+  },
+  classAlign: "center",
+  text: '<b>Whatsapp:</b> <a style="text-decoration:none; color:white; weight:normal;" href="https://api.whatsapp.com/send?phone=573330333376&text=Hola,%20quiero%20saber%20más%20de%20los%20programas%20de%20Javeriana%20virtual." title="Enviar mensaje"><u>333 033 3376</u></a>'
+}%}
+{% include "template-parts/fragments/text.njk" %}
+ {{ function.setSpacer(10) }}
+  {% set textAttrs = {
+          tableAttrs: {
+            
+          },
+          font: {
+            family: "'Open Sans', Arial, Helvetica, sans-serif",
+            size: "9px",
+            lineHeight: "12px",
+            align: "left",
+            color: "#f2f2f2",
+            weight: "normal"
+           
+          },
+          classAlign: "center",
+          text: "(VIGILADA MINEDUCACIÓN Res. 12220 de 2016)"
+        } %}
+        {% include "../template-parts/fragments/text.njk" %}
+ {{ function.setSpacer(40) }}
+        </td>
+        
+    {% endcall %}
+       
+      {% endcall %}
+    
+
+{% endblock %}
