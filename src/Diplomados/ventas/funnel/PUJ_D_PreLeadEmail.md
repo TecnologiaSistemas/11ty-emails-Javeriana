@@ -70,7 +70,7 @@ tableAttrs:{
 },
 font: main_font2,
 classAlign:"center",
-text: 'El <b>$BF{nombre}</b> te da las herramientas y el conocimiento para enfrentarte a un mundo que cambia día con día. Estudia en la Javeriana y aprende de expertos, en menor tiempo y desde cualquier lugar. '
+text: 'El <b>$BF{nombre}</b> te da las herramientas y el conocimiento para enfrentarte a un mundo que cambia día con día. Estudia en La Javeriana y aprende de expertos, en menor tiempo y desde cualquier lugar. '
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(30) }}
