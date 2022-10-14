@@ -4,8 +4,8 @@
 {% block header %}
  {% call function.setTable({ singleColum:true, background: {color: "#ffffff"} } )%}
 
-    </tr>  
-  <tr>
+</tr>  
+<tr>
     
   <td width="50%" class="column">
  {{ function.setSpacer(20) }}
@@ -35,18 +35,23 @@
   } %}
   {% include "../template-parts/demo/header.njk" %}
  
-</td>
+  </td>
 
 {% endcall %}
 
 {% endblock %}
 
+
+
+
+
+
 {% block footer %}
 
   <!--Contact -->
- {% call function.setTable({ singleColumn:true,addGutters: true, paddingSize: { left: "30", right: "30" }, paddingClass: {left: "content-spacing"}, background: {color: "#2B5696" } } )%}
+{% call function.setTable({ singleColumn:true,addGutters: true,  paddingSize: { left: "30", right: "30" }, paddingClass: {left: "content-spacing"}, background: {color: "#2B5696", image: "https://virtual.javerianacali.edu.co/file/img/bg_footer.png", position: "100% 50%;", repeat: "no-repeat", size: "30%"  } } )%}
 {{ function.setSpacer(40) }}
-      {% call function.setTable({} )%}
+{% call function.setTable({} )%}
 
     </tr>
     <tr>
@@ -184,28 +189,30 @@
   text: '<b>Whatsapp:</b> <a style="text-decoration:none; color:white; weight:normal;" href="https://api.whatsapp.com/send?phone=573330333376&text=Hola,%20quiero%20saber%20más%20de%20los%20programas%20de%20Javeriana%20virtual." title="Enviar mensaje"><u>333 033 3376</u></a>'
 }%}
 {% include "template-parts/fragments/text.njk" %}
+ 
  {{ function.setSpacer(10) }}
+ 
   {% set textAttrs = {
-          tableAttrs: {
-            
-          },
-          font: {
-            family: "'Open Sans', Arial, Helvetica, sans-serif",
-            size: "9px",
-            lineHeight: "12px",
-            align: "left",
-            color: "#f2f2f2",
-            weight: "normal"
-           
-          },
-          classAlign: "center",
-          text: "(VIGILADA MINEDUCACIÓN Res. 12220 de 2016)"
-        } %}
-        {% include "../template-parts/fragments/text.njk" %}
+    tableAttrs: { 
+    },
+    font: {
+      family: "'Open Sans', Arial, Helvetica, sans-serif",
+      size: "9px",
+      lineHeight: "12px",
+      align: "left",
+      color: "#f2f2f2",
+      weight: "normal"
+      
+    },
+    classAlign: "center",
+    text: "(VIGILADA MINEDUCACIÓN Res. 12220 de 2016)"
+  } %}
+  {% include "../template-parts/fragments/text.njk" %}
+ 
  {{ function.setSpacer(40) }}
-        </td>
+</td>
         
-    {% endcall %}
+{% endcall %}
        
       {% endcall %}
     
