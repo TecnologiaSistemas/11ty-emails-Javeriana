@@ -106,7 +106,7 @@ tableAttrs:{
 },
 font: main_font2,
 classAlign:"center",
-text: 'Cambia hoy el rumbo de tu carrera profesional e inscríbete<br>Si deseas, puedes contactarnos y un asesor responderá todas tus dudas'
+text: 'Cambia hoy el rumbo de tu carrera profesional e inscríbete. Si deseas, puedes contactarnos y un asesor responderá todas tus dudas.'
 }%}
 {% include "template-parts/fragments/text.njk" %}
 {{ function.setSpacer(30) }}
